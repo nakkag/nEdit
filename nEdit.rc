@@ -1,0 +1,203 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "winres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 日本語 resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)
+#ifdef _WIN32
+LANGUAGE LANG_JAPANESE, SUBLANG_DEFAULT
+#pragma code_page(932)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ICON_MAIN           ICON    DISCARDABLE     "icon1.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MENU MENU DISCARDABLE 
+BEGIN
+    POPUP "ファイル(&F)"
+    BEGIN
+        MENUITEM "新規(&N)\tCtrl+N",            ID_MENUITEM_NEW
+        MENUITEM "開く(&O)...\tCtrl+O",         ID_MENUITEM_OPEN
+        MENUITEM "上書き保存(&S)\tCtrl+S",      ID_MENUITEM_SAVE
+        MENUITEM "名前を付けて保存(&A)...",     ID_MENUITEM_SAVEAS
+        MENUITEM SEPARATOR
+        MENUITEM "終了(&X)",                    ID_MENUITEM_CLOSE
+    END
+    POPUP "編集(&E)"
+    BEGIN
+        MENUITEM "元に戻す(&U)\tCtrl+Z",        ID_MENUITEM_UNDO
+        MENUITEM "やり直し(&R)\tCtrl+Y",        ID_MENUITEM_REDO
+        MENUITEM SEPARATOR
+        MENUITEM "切り取り(&T)\tCtrl+X",        ID_MENUITEM_CUT
+        MENUITEM "コピー(&C)\tCtrl+C",          ID_MENUITEM_COPY
+        MENUITEM "貼り付け(&P)\tCtrl+V",        ID_MENUITEM_PASTE
+        MENUITEM "削除(&D)\tDel",               ID_MENUITEM_DELETE
+        MENUITEM SEPARATOR
+        MENUITEM "すべて選択(&A)\tCtrl+A",      ID_MENUITEM_SELECT_ALL
+    END
+    POPUP "表示(&V)"
+    BEGIN
+        MENUITEM "右端で折り返す(&W)",          ID_MENUITEM_WORDWRAP
+        MENUITEM "フォント(&F)...",             ID_MENUITEM_FONT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// 24
+//
+
+1                       24      MOVEABLE PURE   "manifest.xml"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_ACCELERATOR ACCELERATORS DISCARDABLE 
+BEGIN
+    "A",            ID_MENUITEM_SELECT_ALL, VIRTKEY, CONTROL, NOINVERT
+    "N",            ID_MENUITEM_NEW,        VIRTKEY, CONTROL, NOINVERT
+    "O",            ID_MENUITEM_OPEN,       VIRTKEY, CONTROL, NOINVERT
+    "S",            ID_MENUITEM_SAVE,       VIRTKEY, CONTROL, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_STRING_OPEN_TITLE   "開く"
+    IDS_STRING_SAVE_TITLE   "名前を付けて保存"
+    IDS_STRING_MSG_MODIFY   "変更を保存しますか？"
+END
+
+#endif    // 日本語 resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// 英語 (ｱﾒﾘｶ) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MENU MENU DISCARDABLE 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&New\tCtrl+N",                ID_MENUITEM_NEW
+        MENUITEM "&Open...\tCtrl+O",            ID_MENUITEM_OPEN
+        MENUITEM "&Save\tCtrl+S",               ID_MENUITEM_SAVE
+        MENUITEM "Save &As...",                 ID_MENUITEM_SAVEAS
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       ID_MENUITEM_CLOSE
+    END
+    POPUP "&Edit"
+    BEGIN
+        MENUITEM "&Undo\tCtrl+Z",               ID_MENUITEM_UNDO
+        MENUITEM "&Redo\tCtrl+Y",               ID_MENUITEM_REDO
+        MENUITEM SEPARATOR
+        MENUITEM "Cu&t\tCtrl+X",                ID_MENUITEM_CUT
+        MENUITEM "&Copy\tCtrl+C",               ID_MENUITEM_COPY
+        MENUITEM "&Paste\tCtrl+V",              ID_MENUITEM_PASTE
+        MENUITEM "De&lete\tDel",                ID_MENUITEM_DELETE
+        MENUITEM SEPARATOR
+        MENUITEM "Select &All\tCtrl+A",         ID_MENUITEM_SELECT_ALL
+    END
+    POPUP "F&ormat"
+    BEGIN
+        MENUITEM "&Word Wrap",                  ID_MENUITEM_WORDWRAP
+        MENUITEM "&Font...",                    ID_MENUITEM_FONT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_STRING_OPEN_TITLE   "Open"
+    IDS_STRING_SAVE_TITLE   "Save As"
+    IDS_STRING_MSG_MODIFY   "Do you want to save the changes?"
+END
+
+#endif    // 英語 (ｱﾒﾘｶ) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
