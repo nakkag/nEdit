@@ -3,8 +3,8 @@
  *
  * main.c
  *
- * Copyright (C) 1996-2015 by Ohno Tomoaki. All rights reserved.
- *		http://www.nakka.com/
+ * Copyright (C) 1996-2021 by Ohno Tomoaki. All rights reserved.
+ *		https://www.nakka.com/
  *		nakka@nakka.com
  */
 
@@ -55,7 +55,7 @@ static BOOL init_application(HINSTANCE hInstance);
 static HWND init_instance(HINSTANCE hInstance, int CmdShow);
 
 /*
- * message_get_error - ƒGƒ‰[’l‚©‚çƒƒbƒZ[ƒW‚ğæ“¾
+ * message_get_error - ã‚¨ãƒ©ãƒ¼å€¤ã‹ã‚‰ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’å–å¾—
  */
 static BOOL message_get_error(const int err_code, TCHAR *err_str)
 {
@@ -68,7 +68,7 @@ static BOOL message_get_error(const int err_code, TCHAR *err_str)
 }
 
 /*
- * message_get_res - ƒŠƒ\[ƒX‚©‚çƒƒbƒZ[ƒW‚ğæ“¾
+ * message_get_res - ãƒªã‚½ãƒ¼ã‚¹ã‹ã‚‰ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’å–å¾—
  */
 TCHAR *message_get_res(const UINT id)
 {
@@ -80,13 +80,13 @@ TCHAR *message_get_res(const UINT id)
 }
 
 /*
- * font_select - ƒtƒHƒ“ƒg‚Ì‘I‘ğ
+ * font_select - ãƒ•ã‚©ãƒ³ãƒˆã®é¸æŠ
  */
 static HFONT font_select(const HWND hWnd)
 {
 	CHOOSEFONT cf;
 
-	// ƒtƒHƒ“ƒg‘I‘ğƒ_ƒCƒAƒƒO‚ğ•\¦
+	// ãƒ•ã‚©ãƒ³ãƒˆé¸æŠãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã‚’è¡¨ç¤º
 	ZeroMemory(&cf, sizeof(CHOOSEFONT));
 	cf.lStructSize = sizeof(CHOOSEFONT);
 	cf.hwndOwner = hWnd;
@@ -100,7 +100,7 @@ static HFONT font_select(const HWND hWnd)
 }
 
 /*
- * get_ini - İ’è“Ç‚İ‚İ
+ * get_ini - è¨­å®šèª­ã¿è¾¼ã¿
  */
 static void get_ini(const HWND hWnd, const TCHAR *path)
 {
@@ -136,7 +136,7 @@ static void get_ini(const HWND hWnd, const TCHAR *path)
 }
 
 /*
- * put_ini - İ’è‘‚«‚İ
+ * put_ini - è¨­å®šæ›¸ãè¾¼ã¿
  */
 static void put_ini(const HWND hWnd, const TCHAR *path)
 {
@@ -169,7 +169,7 @@ static void put_ini(const HWND hWnd, const TCHAR *path)
 }
 
 /*
- * read_file - ƒtƒ@ƒCƒ‹‚Ì“Ç‚İ‚İ
+ * read_file - ãƒ•ã‚¡ã‚¤ãƒ«ã®èª­ã¿è¾¼ã¿
  */
 static BOOL read_file(const HWND hWnd, TCHAR *path)
 {
@@ -196,7 +196,7 @@ static BOOL read_file(const HWND hWnd, TCHAR *path)
 		}
 	}
 	
-	// ƒtƒ@ƒCƒ‹‚ğŠJ‚­
+	// ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã
 	hFile = CreateFile(path, GENERIC_READ, FILE_SHARE_READ | FILE_SHARE_WRITE, 0, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
 	if (hFile == NULL || hFile == (HANDLE)-1) {
 		message_get_error(GetLastError(), err_str);
@@ -216,7 +216,7 @@ static BOOL read_file(const HWND hWnd, TCHAR *path)
 		MessageBox(hWnd, err_str, WINDOW_TITLE, MB_ICONERROR);
 		return FALSE;
 	}
-	// ƒtƒ@ƒCƒ‹‚ğ“Ç‚İ‚Ş
+	// ãƒ•ã‚¡ã‚¤ãƒ«ã‚’èª­ã¿è¾¼ã‚€
 	if (ReadFile(hFile, buf, fSizeLow, &ret, NULL) == FALSE) {
 		message_get_error(GetLastError(), err_str);
 		LocalFree(buf);
@@ -237,13 +237,13 @@ static BOOL read_file(const HWND hWnd, TCHAR *path)
 	LocalFree(buf);
 	CloseHandle(hFile);
 
-	// EDIT ‚Ì•ÏXƒtƒ‰ƒO‚ğœ‹‚·‚é
+	// EDIT ã®å¤‰æ›´ãƒ•ãƒ©ã‚°ã‚’é™¤å»ã™ã‚‹
 	SendMessage(GetDlgItem(hWnd, IDC_EDIT_EDIT), EM_SETMODIFY, (WPARAM)FALSE, 0);
 	return TRUE;
 }
 
 /*
- * save_file - ƒtƒ@ƒCƒ‹‚Ì•Û‘¶
+ * save_file - ãƒ•ã‚¡ã‚¤ãƒ«ã®ä¿å­˜
  */
 static BOOL save_file(const HWND hWnd, TCHAR *path)
 {
@@ -270,7 +270,7 @@ static BOOL save_file(const HWND hWnd, TCHAR *path)
 		}
 	}
 
-	// ƒtƒ@ƒCƒ‹‚ğŠJ‚­
+	// ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã
 	hFile = CreateFile(path, GENERIC_READ | GENERIC_WRITE, 0, 0, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
 	if (hFile == NULL || hFile == (HANDLE)-1) {
 		message_get_error(GetLastError(), err_str);
@@ -287,7 +287,7 @@ static BOOL save_file(const HWND hWnd, TCHAR *path)
 	}
 	SendMessage(GetDlgItem(hWnd, IDC_EDIT_EDIT), WM_GETMEM, 0, (LPARAM)buf);
 	
-	// ƒtƒ@ƒCƒ‹‚É‘‚«‚Ş
+	// ãƒ•ã‚¡ã‚¤ãƒ«ã«æ›¸ãè¾¼ã‚€
 #ifdef UNICODE
 	{
 		BYTE tmp[2];
@@ -312,13 +312,13 @@ static BOOL save_file(const HWND hWnd, TCHAR *path)
 	LocalFree(buf);
 	CloseHandle(hFile);
 	
-	// EDIT ‚Ì•ÏXƒtƒ‰ƒO‚ğœ‹‚·‚é
+	// EDIT ã®å¤‰æ›´ãƒ•ãƒ©ã‚°ã‚’é™¤å»ã™ã‚‹
 	SendMessage(GetDlgItem(hWnd, IDC_EDIT_EDIT), EM_SETMODIFY, (WPARAM)FALSE, 0);
 	return TRUE;
 }
 
 /*
- * save_confirm - •ÏX‚Ì•Û‘¶Šm”F
+ * save_confirm - å¤‰æ›´ã®ä¿å­˜ç¢ºèª
  */
 static BOOL save_confirm(const HWND hWnd)
 {
@@ -342,7 +342,7 @@ static BOOL save_confirm(const HWND hWnd)
 }
 
 /*
- * wnd_proc - ƒƒCƒ“ƒEƒBƒ“ƒhƒEƒvƒƒV[ƒWƒƒ
+ * wnd_proc - ãƒ¡ã‚¤ãƒ³ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãƒ—ãƒ­ã‚·ãƒ¼ã‚¸ãƒ£
  */
 static LRESULT CALLBACK wnd_proc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
@@ -352,13 +352,13 @@ static LRESULT CALLBACK wnd_proc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lPar
 
 	switch (msg) {
 	case WM_CREATE:
-		// EDITì¬
+		// EDITä½œæˆ
 		CreateWindowEx(0, NEDIT_WND_CLASS, TEXT(""),
 			WS_VISIBLE | WS_CHILD | WS_VSCROLL | WS_HSCROLL | ES_MULTILINE | ES_NOHIDESEL,
 			0, 0, 0, 0,
 			hWnd, (HMENU)IDC_EDIT_EDIT, ((LPCREATESTRUCT)lParam)->hInstance, NULL);
 
-		// INIƒtƒ@ƒCƒ‹
+		// INIãƒ•ã‚¡ã‚¤ãƒ«
 		GetModuleFileName(((LPCREATESTRUCT)lParam)->hInstance, app_path, BUF_SIZE - 1);
 		if (lstrcmpi(app_path + lstrlen(app_path) - 4, TEXT(".exe")) == 0) {
 			lstrcpy(app_path + lstrlen(app_path) - 4, TEXT(".ini"));
@@ -367,7 +367,7 @@ static LRESULT CALLBACK wnd_proc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lPar
 		}
 		get_ini(hWnd, app_path);
 
-		// ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“
+		// ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³
 		if (*cmd_line != TEXT('\0') && read_file(hWnd, cmd_line) == TRUE) {
 			lstrcpy(file_path, cmd_line);
 			wsprintf(buf, TEXT("%s - [%s]"), WINDOW_TITLE, file_path);
@@ -380,7 +380,7 @@ static LRESULT CALLBACK wnd_proc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lPar
 		break;
 
 	case WM_SIZE:
-		// ƒEƒBƒ“ƒhƒE“à‚ÌEDIT‚ÌƒTƒCƒY‚ğƒEƒBƒ“ƒhƒE‚ÌƒTƒCƒY‚É‡‚í‚¹‚é
+		// ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦å†…ã®EDITã®ã‚µã‚¤ã‚ºã‚’ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ã‚µã‚¤ã‚ºã«åˆã‚ã›ã‚‹
 		GetClientRect(hWnd, &rect);
 		MoveWindow(GetDlgItem(hWnd, IDC_EDIT_EDIT), 0, 0,
 			rect.right, rect.bottom, TRUE);
@@ -535,7 +535,7 @@ static LRESULT CALLBACK wnd_proc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lPar
 }
 
 /*
- * init_application - ƒEƒBƒ“ƒhƒEƒNƒ‰ƒX‚Ì“o˜^
+ * init_application - ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚¯ãƒ©ã‚¹ã®ç™»éŒ²
  */
 static BOOL init_application(HINSTANCE hInstance)
 {
@@ -551,18 +551,18 @@ static BOOL init_application(HINSTANCE hInstance)
 	wc.hIcon = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_ICON_MAIN));
 	wc.hbrBackground = (HBRUSH)COLOR_BTNSHADOW;
 	wc.lpszClassName = MAIN_WND_CLASS;
-	// ƒEƒBƒ“ƒhƒEƒNƒ‰ƒX‚Ì“o˜^
+	// ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚¯ãƒ©ã‚¹ã®ç™»éŒ²
 	return RegisterClass(&wc);
 }
 
 /*
- * init_instance - ƒEƒBƒ“ƒhƒE‚Ìì¬
+ * init_instance - ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ä½œæˆ
  */
 static HWND init_instance(HINSTANCE hInstance, int CmdShow)
 {
 	HWND hWnd =  NULL;
 
-	// ƒEƒBƒ“ƒhƒE‚Ìì¬
+	// ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ä½œæˆ
 	hWnd = CreateWindowEx(WS_EX_ACCEPTFILES,
 		MAIN_WND_CLASS,
 		WINDOW_TITLE,
@@ -576,14 +576,14 @@ static HWND init_instance(HINSTANCE hInstance, int CmdShow)
 		return NULL;
 	}
 
-	// ƒEƒBƒ“ƒhƒE‚Ì•\¦
+	// ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®è¡¨ç¤º
 	ShowWindow(hWnd, CmdShow);
 	UpdateWindow(hWnd);
 	return hWnd;
 }
 
 /*
- * WinMain - ƒƒCƒ“
+ * WinMain - ãƒ¡ã‚¤ãƒ³
  */
 int WINAPI _tWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLine, int nCmdShow)
 {
@@ -605,22 +605,22 @@ int WINAPI _tWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdL
 		lstrcpy(cmd_line, lpCmdLine);
 	}
 
-	// EDIT“o˜^
+	// EDITç™»éŒ²
 	if (RegisterNedit(hInstance) == FALSE) {
 		return 0;
 	}
-	// ƒEƒBƒ“ƒhƒEƒNƒ‰ƒX‚Ì“o˜^
+	// ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚¯ãƒ©ã‚¹ã®ç™»éŒ²
 	if (init_application(hInstance) == FALSE) {
 		return 0;
 	}
-	// ƒEƒBƒ“ƒhƒE‚Ìì¬
+	// ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ä½œæˆ
 	if ((hWnd = init_instance(hInstance, nCmdShow)) == NULL) {
 		return 0;
 	}
 
-	// ƒŠƒ\[ƒX‚©‚çƒAƒNƒZƒ‰ƒŒ[ƒ^‚ğƒ[ƒh
+	// ãƒªã‚½ãƒ¼ã‚¹ã‹ã‚‰ã‚¢ã‚¯ã‚»ãƒ©ãƒ¬ãƒ¼ã‚¿ã‚’ãƒ­ãƒ¼ãƒ‰
 	hAccel = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDR_ACCELERATOR));
-	// ƒEƒBƒ“ƒhƒEƒƒbƒZ[ƒWˆ—
+	// ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸å‡¦ç†
 	while (GetMessage(&msg, NULL, 0, 0)) {
 		if (!TranslateAccelerator(hWnd, hAccel, &msg)) {
 			TranslateMessage(&msg);
