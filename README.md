@@ -64,14 +64,11 @@ case WM_SIZE:
 nEditの制御は、主に ウィンドウメッセージ（`SendMessage`） または 専用のC言語関数API を通じて行います。
 
 ### 2.1 初期化・管理関数
-`BOOL nEdit_RegisterControl(HINSTANCE hInst)`
+`BOOL RegisterNedit(HINSTANCE hInst)`
 nEditのカスタムウィンドウクラスをシステムに登録します。
 
 - 引数: `hInst` - アプリケーションのインスタンスハンドル。
 - 戻り値: 登録に成功した場合は `TRUE`、失敗した場合は `FALSE`。
-
-`void nEdit_UnregisterControl(HINSTANCE hInst)`
-登録されたnEditのウィンドウクラスを解除します。アプリケーション終了時に呼び出します。
 
 ### 2.2 ウィンドウメッセージAPI
 エディタの操作は、標準の `SendMessage` 関数を使用して、nEditのウィンドウハンドル（`hwndEditor`）に対してメッセージを送信することで行います。
@@ -154,7 +151,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 }
 
 int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrev, LPSTR cmd, int show) {
-    nEdit_RegisterControl(hInst);
+    RegisterNedit(hInst);
 
     WNDCLASS wc = {0};
     wc.lpfnWndProc = WndProc;
@@ -173,8 +170,6 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrev, LPSTR cmd, int show) {
         TranslateMessage(&msg);
         DispatchMessage(&msg);
     }
-
-    nEdit_UnregisterControl(hInst);
     return (int)msg.wParam;
 }
 ```
