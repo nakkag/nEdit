@@ -63,7 +63,7 @@ case WM_SIZE:
 ## 2. APIリファレンス
 nEditの制御は、主に ウィンドウメッセージ（`SendMessage`） または 専用のC言語関数API を通じて行います。
 
-### 2.1 初期化・管理関数
+### 2.1 初期化関数
 `BOOL RegisterNedit(HINSTANCE hInst)`
 nEditのカスタムウィンドウクラスをシステムに登録します。
 
